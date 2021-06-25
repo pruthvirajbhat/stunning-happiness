@@ -128,8 +128,8 @@ OS and Service detection performed. Please report any incorrect results at https
     document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>4</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>5</span>];
 })()
 </code></pre></div>
-                <p>Con esas credenciales nos podemos intentamos loguearnos, un usuario llamado <code>clave</code> y con contraseñá <code>11des0081x</code>, nos logueamos exitosamente y tenemos acceso a algunos proyectos:</p><img src=https://pruthvirajbhat.github.io/images/htb/bitlab/1.5-web_enum.png
-                    class=center style=border-radius:8px>
+                <p> un usuario llamado <code>clave</code> y con contraseñá <code>11des0081x</code>, nos logueamos exitosamente y tenemos acceso a algunos proyectos:</p><img src=https://pruthvirajbhat.github.io/images/htb/bitlab/1.5-web_enum.png class=center
+                    style=border-radius:8px>
                 <p>Si miramos detalladamente en <code>Profile</code> encontramos que este proyecto tiene <a href=https://docs.gitlab.com/ee/topics/autodevops/>Auto DevOps</a> habilitado. Seguimos enumerando un poco más, y vemos que el proyecto que se llama
                     <code>Deployer</code> está a cargo de manejar eso: deployear las aplicaciones, en la descripción hay un enlace apuntando a a gitlab, nos fijamos que hay en la documentación de <a href=https://docs.gitlab.com/ee/user/project/integrations/webhooks.html>webhooks</a>,
                     después de leer un poco, nos fijamos que hace <code>index.php</code>:</p><img src=https://pruthvirajbhat.github.io/images/htb/bitlab/1.6-web_enum.png class=center style=border-radius:8px>
