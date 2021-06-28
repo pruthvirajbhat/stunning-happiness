@@ -70,8 +70,7 @@
                 <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
                             <circle cx="12" cy="12" r="10" />
                             <polyline points="12 6 12 12 16 14" />
-                        </svg>13 minutes | Tambien disponible en
-                    <a href=https://pruthvirajbhat.github.io/es/posts/2020/01/hack-the-box-craft /><span class="flag flag-icon flag-icon-es flag-icon-squared"></span></a>
+                        </svg>13 minutes
                 </p>
             </div>
             <h2 class=post-title><a href=https://pruthvirajbhat.github.io/posts/2020/01/hack-the-box-craft />Hack The Box - Craft</a>
@@ -146,7 +145,8 @@ Nmap done: 1 IP address (1 host up) scanned in 32.11 seconds
                 <p>We got port port 22 (SSH) and 443 (HTTPS) are open.</p>
                 <h2 id=web-enumeration>Web enumeration</h2>
                 <p>The home page is kind-empty, but if we position the cursor on API and the Github logo, we see at the bottom that it will redirect to <code>https://api.craft.htb</code> and
-                    <code>https://gogs.craft.htb</code>, we will add them to <code>/etc/hosts</code> pointing to the IP of craft <code>10.10.10.110</code>.</p>
+                    <code>https://gogs.craft.htb</code>, we will add them to <code>/etc/hosts</code> pointing to the IP of craft <code>10.10.10.110</code>.
+                </p>
                 <p><img src=https://pruthvirajbhat.github.io/images/htb/craft/1-web-enum.png class=center style=border-radius:8px>
                     <img src=https://pruthvirajbhat.github.io/images/htb/craft/2-web-enum.png class=center style=border-radius:8px>
                 </p>
@@ -154,7 +154,8 @@ Nmap done: 1 IP address (1 host up) scanned in 32.11 seconds
                 <img src=https://pruthvirajbhat.github.io/images/htb/craft/2-api.png class=center style=border-radius:8px>
                 <img src=https://pruthvirajbhat.github.io/images/htb/craft/3-api.png class=center style=border-radius:8px>
                 <p>We don&rsquo;t have at the moment any credentials to identify, so we go to
-                    <code>https://gogs.craft.htb</code> in order to see if we can find something.</p><img src=https://pruthvirajbhat.github.io/images/htb/craft/1-gogs.png class=center style=border-radius:8px>
+                    <code>https://gogs.craft.htb</code> in order to see if we can find something.
+                </p><img src=https://pruthvirajbhat.github.io/images/htb/craft/1-gogs.png class=center style=border-radius:8px>
                 <img src=https://pruthvirajbhat.github.io/images/htb/craft/2-gogs.png class=center style=border-radius:8px>
                 <img src=https://pruthvirajbhat.github.io/images/htb/craft/3-gogs.png class=center style=border-radius:8px>
                 <p>We see in explore there is a repository named <code>craft-api</code> and that the users is our gang from Silicon Valley.</p>
@@ -293,7 +294,9 @@ dbtest.py:                             password=settings.MYSQL_DATABASE_PASSWORD
 </code></pre>
                 <p>There we see we have credentials for the database, we took a deep look into
                     <code>craft_api/settings.py</code> to see which one is the user, and it&rsquo;s
-                    <code>craft</code>, we take a look into the <code>dbtest.py</code> we found early under <code>/opt/app</code>:</p>
+                    <code>craft</code>, we take a look into the <code>dbtest.py</code> we found early under
+                    <code>/opt/app</code>:
+                </p>
                 <pre><code class=language-console data-lang=console>/opt/app # cat dbtest.py
 #!/usr/bin/env python
 
@@ -337,7 +340,9 @@ finally:
 /opt/app # 
 </code></pre>
                 <p>So, we got the users <code>dinesh, ebachman and gilfoyle</code> and it&rsquo;s respective passwords, with that we go to <code>https://gogs.craft.htb</code> again and login as
-                    <code>gilfoyle</code> and we found that he has a private repo to deploy the infra called <code>craft-infra</code></p><img src=https://pruthvirajbhat.github.io/images/htb/craft/1-gil.png class=center style=border-radius:8px>
+                    <code>gilfoyle</code> and we found that he has a private repo to deploy the infra called
+                    <code>craft-infra</code>
+                </p><img src=https://pruthvirajbhat.github.io/images/htb/craft/1-gil.png class=center style=border-radius:8px>
                 <img src=https://pruthvirajbhat.github.io/images/htb/craft/2-gil.png class=center style=border-radius:8px>
                 <p>We notice there exists a <code>.ssh</code> folder, we look into it and we get a pair of public/private ssh keys:</p><img src=https://pruthvirajbhat.github.io/images/htb/craft/3-gil.png class=center style=border-radius:8px>
                 <p>We try to login via ssh as <code>gilfoyle</code> re-using the password we got earlier and we found a success (actually the first tries it failed for me, and spent some hours trying to break the id_rsa with john without success, so give
@@ -469,7 +474,8 @@ Usage: vault ssh [options] username@ip [ssh options]
   For the full list of options and arguments, please see the documentation.
 </code></pre>
                 <p>Is clear is needed to execute something like
-                    <code>vault ssh -mode=otp -role=my-role user@1.2.3.4</code>, so we do it:</p>
+                    <code>vault ssh -mode=otp -role=my-role user@1.2.3.4</code>, so we do it:
+                </p>
                 <pre><code class=language-console data-lang=console>gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
 Vault could not locate &quot;sshpass&quot;. The OTP code for the session is displayed
 below. Enter this code in the SSH password prompt. If you install sshpass,
