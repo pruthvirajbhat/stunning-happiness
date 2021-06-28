@@ -487,7 +487,7 @@ a.button.wide {
 }
 
 .dark-theme .header {
-    background: #252627
+    background: #1b1c1d
 }
 
 .header__right {
@@ -587,7 +587,7 @@ a.button.wide {
 }
 
 .dark-theme .menu {
-    background: #252627
+    background: #1b1c1d
 }
 
 @media(max-width:684px) {
@@ -689,7 +689,7 @@ body {
 }
 
 body.dark-theme {
-    background-color: #292a2d;
+    background-color: #232425;
     color: #a9a9b3
 }
 
@@ -1170,7 +1170,7 @@ hr {
 }
 
 .dark-theme .pagination__title-h {
-    background: #292a2d;
+    background: #232425;
     color: #73747b
 }
 
