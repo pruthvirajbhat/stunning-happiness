@@ -968,8 +968,8 @@ hr {
 }
 
 .posts {
-    width: 125%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 800px;
     text-align: left;
     padding: 20px;
     margin: 20px auto
@@ -1045,8 +1045,8 @@ hr {
 }
 
 .post {
-    width: 125%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 800px;
     text-align: left;
     padding: 20px;
     margin: 20px auto
