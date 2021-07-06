@@ -1,2 +1,2 @@
-# pruthvirajbhat.github.io
-primary website 
+# pruthvirajbhat.github.io/simpleone
+was the first website trail 
