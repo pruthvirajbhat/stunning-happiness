@@ -1,2 +1,2 @@
 # pruthvirajbhat.github.io
-primary website 
+personal website 
