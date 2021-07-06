@@ -507,8 +507,8 @@ a.button.wide {
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    width: 1000px;
-    max-width: 15%
+    width: 760px;
+    max-width: 100%
 }
 
 .theme-toggle {
