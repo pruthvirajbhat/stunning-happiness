@@ -508,7 +508,7 @@ a.button.wide {
     justify-content: space-between;
     margin: 0 auto;
     width: 1000px;
-    max-width: 100%
+    max-width: 75%
 }
 
 .theme-toggle {
